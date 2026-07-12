@@ -61,6 +61,40 @@ const faqs = [
   },
 ];
 
+const enquiryMailtoScript = String.raw`
+(() => {
+  const form = document.getElementById("booking-enquiry");
+  if (!(form instanceof HTMLFormElement)) return;
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+
+    const data = new FormData(form);
+    const value = (name) => String(data.get(name) || "").trim();
+    const dogName = value("Dog name").replace(/[\r\n]+/g, " ");
+    const subject = "Tales of Us booking enquiry" + (dogName ? " – " + dogName : "");
+    const body = [
+      "Owner name: " + value("Owner name"),
+      "Phone or email: " + value("Contact"),
+      "Dog's name: " + dogName,
+      "Breed & age: " + value("Breed and age"),
+      "Drop-off date: " + value("Drop-off date"),
+      "Pick-up date: " + value("Pick-up date"),
+      "",
+      "Care notes:",
+      value("Care notes"),
+    ].join("\r\n");
+
+    window.location.href =
+      "mailto:tanbir.kashyap879@gmail.com?subject=" +
+      encodeURIComponent(subject) +
+      "&body=" +
+      encodeURIComponent(body);
+  });
+})();
+`;
+
 export default function Home() {
   return (
     <>
@@ -344,7 +378,7 @@ export default function Home() {
               <p className="demo-contact-note">The address and enquiry email are provided by the hosts. Rates and service policies should be confirmed before booking.</p>
             </div>
 
-            <form className="inquiry-form" action="mailto:tanbir.kashyap879@gmail.com?subject=Tales%20of%20Us%20booking%20enquiry" method="post" encType="text/plain">
+            <form className="inquiry-form" id="booking-enquiry">
               <div className="form-heading"><span>Booking enquiry</span><small>Opens your email app</small></div>
               <div className="form-row">
                 <label> Your name<input type="text" name="Owner name" autoComplete="name" required /></label>
@@ -362,6 +396,9 @@ export default function Home() {
               <label className="consent"><input type="checkbox" required /><span>I understand my email app will open and no booking is confirmed until the hosts reply.</span></label>
               <button className="button button-submit" type="submit">Create enquiry email <span aria-hidden="true">↗</span></button>
               <p className="form-footnote">No commitment—your first step is simply a friendly conversation.</p>
+              <noscript>
+                <p className="form-footnote">JavaScript is required to prefill the enquiry. Please email <a href="mailto:tanbir.kashyap879@gmail.com">tanbir.kashyap879@gmail.com</a> directly.</p>
+              </noscript>
             </form>
           </div>
         </section>
@@ -384,6 +421,11 @@ export default function Home() {
         <a href="mailto:tanbir.kashyap879@gmail.com?subject=Tales%20of%20Us%20booking%20enquiry">Email</a>
         <a className="primary" href="#contact">Check dates</a>
       </nav>
+
+      <script
+        data-static-preserve="true"
+        dangerouslySetInnerHTML={{ __html: enquiryMailtoScript }}
+      />
     </>
   );
 }
