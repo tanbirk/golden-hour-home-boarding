@@ -61,10 +61,28 @@ const faqs = [
   },
 ];
 
-const enquiryMailtoScript = String.raw`
+const enquiryEmailScript = String.raw`
 (() => {
   const form = document.getElementById("booking-enquiry");
   if (!(form instanceof HTMLFormElement)) return;
+
+  const sendPanel = document.getElementById("enquiry-send-panel");
+  const gmailLink = document.getElementById("enquiry-gmail-link");
+  const emailAppLink = document.getElementById("enquiry-email-app-link");
+  const copyButton = document.getElementById("enquiry-copy-button");
+  const copyText = document.getElementById("enquiry-copy-text");
+  const copyDetails = document.getElementById("enquiry-copy-details");
+  const copyStatus = document.getElementById("enquiry-copy-status");
+
+  if (
+    !(sendPanel instanceof HTMLElement) ||
+    !(gmailLink instanceof HTMLAnchorElement) ||
+    !(emailAppLink instanceof HTMLAnchorElement) ||
+    !(copyButton instanceof HTMLButtonElement) ||
+    !(copyText instanceof HTMLTextAreaElement) ||
+    !(copyDetails instanceof HTMLDetailsElement) ||
+    !(copyStatus instanceof HTMLElement)
+  ) return;
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -86,11 +104,40 @@ const enquiryMailtoScript = String.raw`
       value("Care notes"),
     ].join("\r\n");
 
-    window.location.href =
+    const mailtoUrl =
       "mailto:tanbir.kashyap879@gmail.com?subject=" +
       encodeURIComponent(subject) +
       "&body=" +
       encodeURIComponent(body);
+
+    const gmailUrl =
+      "https://mail.google.com/mail/?extsrc=mailto&url=" +
+      encodeURIComponent(mailtoUrl);
+
+    gmailLink.href = gmailUrl;
+    emailAppLink.href = mailtoUrl;
+    copyText.value = [
+      "To: tanbir.kashyap879@gmail.com",
+      "Subject: " + subject,
+      "",
+      body,
+    ].join("\r\n");
+    copyStatus.textContent = "";
+    sendPanel.hidden = false;
+    sendPanel.focus({ preventScroll: true });
+    sendPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+
+  copyButton.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(copyText.value);
+      copyStatus.textContent = "Enquiry details copied. Paste them into any email or message.";
+    } catch {
+      copyDetails.open = true;
+      copyText.focus();
+      copyText.select();
+      copyStatus.textContent = "Copy the selected text, then paste it into your preferred email app.";
+    }
   });
 })();
 `;
@@ -379,22 +426,38 @@ export default function Home() {
             </div>
 
             <form className="inquiry-form" id="booking-enquiry">
-              <div className="form-heading"><span>Booking enquiry</span><small>Opens your email app</small></div>
+              <div className="form-heading"><span>Booking enquiry</span><small>Secure send options</small></div>
               <div className="form-row">
-                <label> Your name<input type="text" name="Owner name" autoComplete="name" required /></label>
-                <label> Phone or email<input type="text" name="Contact" autoComplete="email" required /></label>
+                <label> Your name<input type="text" name="Owner name" autoComplete="name" maxLength={100} required /></label>
+                <label> Phone or email<input type="text" name="Contact" autoComplete="email" maxLength={160} required /></label>
               </div>
               <div className="form-row">
-                <label> Dog's name<input type="text" name="Dog name" required /></label>
-                <label> Breed & age<input type="text" name="Breed and age" required /></label>
+                <label> Dog's name<input type="text" name="Dog name" maxLength={80} required /></label>
+                <label> Breed & age<input type="text" name="Breed and age" maxLength={120} required /></label>
               </div>
               <div className="form-row">
                 <label> Drop-off date<input type="date" name="Drop-off date" required /></label>
                 <label> Pick-up date<input type="date" name="Pick-up date" required /></label>
               </div>
-              <label> Tell us about your dog<textarea name="Care notes" rows={5} placeholder="Routine, temperament, medications, favourite things…" required /></label>
-              <label className="consent"><input type="checkbox" required /><span>I understand my email app will open and no booking is confirmed until the hosts reply.</span></label>
-              <button className="button button-submit" type="submit">Create enquiry email <span aria-hidden="true">↗</span></button>
+              <label> Tell us about your dog<textarea name="Care notes" rows={5} maxLength={1000} placeholder="Routine, temperament, medications, favourite things…" required /></label>
+              <label className="consent"><input type="checkbox" required /><span>I understand nothing is sent until I choose an option below and press Send in my email service.</span></label>
+              <button className="button button-submit" type="submit">Create enquiry email <span aria-hidden="true">↓</span></button>
+              <div className="enquiry-send-panel" id="enquiry-send-panel" role="region" aria-labelledby="enquiry-ready-title" tabIndex={-1} hidden>
+                <div className="enquiry-send-message">
+                  <span className="enquiry-ready-mark" aria-hidden="true">✓</span>
+                  <p><strong id="enquiry-ready-title">Your enquiry is ready.</strong><small>Nothing has been sent yet. Choose how you would like to send it.</small></p>
+                </div>
+                <div className="enquiry-send-actions">
+                  <a className="enquiry-send-primary" id="enquiry-gmail-link" target="_blank" rel="noopener noreferrer">Open Gmail <span className="sr-only">in a new tab</span></a>
+                  <a id="enquiry-email-app-link">Use another email app</a>
+                  <button id="enquiry-copy-button" type="button">Copy enquiry details</button>
+                </div>
+                <p className="enquiry-copy-status" id="enquiry-copy-status" role="status" aria-live="polite" />
+                <details className="enquiry-copy-details" id="enquiry-copy-details">
+                  <summary>View copyable enquiry text</summary>
+                  <textarea id="enquiry-copy-text" rows={9} readOnly aria-label="Prepared enquiry email text" />
+                </details>
+              </div>
               <p className="form-footnote">No commitment—your first step is simply a friendly conversation.</p>
               <noscript>
                 <p className="form-footnote">JavaScript is required to prefill the enquiry. Please email <a href="mailto:tanbir.kashyap879@gmail.com">tanbir.kashyap879@gmail.com</a> directly.</p>
@@ -424,7 +487,7 @@ export default function Home() {
 
       <script
         data-static-preserve="true"
-        dangerouslySetInnerHTML={{ __html: enquiryMailtoScript }}
+        dangerouslySetInnerHTML={{ __html: enquiryEmailScript }}
       />
     </>
   );

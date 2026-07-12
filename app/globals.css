@@ -25,6 +25,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 body, button, input, textarea { font-family: var(--body); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 button, input, textarea, summary { font: inherit; }
@@ -352,6 +353,23 @@ h2 { margin-bottom: 0; font-size: clamp(2.6rem, 5vw, 4.7rem); line-height: .99; 
 .consent input { width: 17px; height: 17px; min-height: 0; margin: .08rem 0 0; accent-color: var(--forest); }
 .button-submit { width: 100%; margin-top: .5rem; border: 0; }
 .form-footnote { margin: .8rem 0 0; color: var(--muted); text-align: center; font-size: .65rem; }
+.enquiry-send-panel { margin-top: 1rem; border: 1px solid rgba(217,149,50,.34); border-radius: 15px; background: #fff8e9; padding: 1rem; }
+.enquiry-send-panel[hidden] { display: none; }
+.enquiry-send-panel:focus { outline: 3px solid rgba(217,149,50,.22); outline-offset: 3px; }
+.enquiry-send-message { display: flex; align-items: center; gap: .7rem; margin-bottom: .9rem; }
+.enquiry-ready-mark { width: 30px; height: 30px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 50%; background: var(--forest); color: var(--paper); font-size: .8rem; font-weight: 900; }
+.enquiry-send-message p { display: grid; gap: .16rem; margin: 0; }
+.enquiry-send-message strong { color: var(--forest-dark); font-family: var(--display); font-size: 1.05rem; }
+.enquiry-send-message small { color: var(--muted); font-size: .67rem; line-height: 1.4; }
+.enquiry-send-actions { display: grid; grid-template-columns: 1fr 1fr; gap: .55rem; }
+.enquiry-send-actions a, .enquiry-send-actions button { min-height: 42px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 9px; background: var(--paper); color: var(--forest); padding: .65rem .75rem; cursor: pointer; font-size: .69rem; font-weight: 800; text-align: center; text-decoration: none; }
+.enquiry-send-actions .enquiry-send-primary { border-color: var(--forest); background: var(--forest); color: var(--paper); }
+.enquiry-send-actions button { grid-column: 1 / -1; font-family: inherit; }
+.enquiry-send-actions a:hover, .enquiry-send-actions button:hover { border-color: var(--amber); }
+.enquiry-copy-status { min-height: 1.1rem; margin: .65rem 0 0; color: var(--forest); font-size: .65rem; line-height: 1.45; text-align: center; }
+.enquiry-copy-details { margin-top: .2rem; border-top: 1px solid rgba(31,69,57,.12); padding-top: .65rem; }
+.enquiry-copy-details summary { cursor: pointer; color: var(--muted); font-size: .66rem; font-weight: 750; text-align: center; }
+.inquiry-form .enquiry-copy-details textarea { margin-top: .65rem; min-height: 170px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: .72rem; line-height: 1.5; }
 
 .site-footer { background: var(--forest-dark); color: var(--paper); border-top: 1px solid rgba(255,255,255,.12); padding: 2.8rem 0 2rem; }
 .footer-grid { display: grid; grid-template-columns: 1fr 1.2fr 1fr; align-items: center; gap: 2rem; }
@@ -459,6 +477,8 @@ h2 { margin-bottom: 0; font-size: clamp(2.6rem, 5vw, 4.7rem); line-height: .99; 
   .inquiry-form { padding: 1.4rem; }
   .form-row { grid-template-columns: 1fr; gap: 0; }
   .form-heading { align-items: flex-start; flex-direction: column; }
+  .enquiry-send-actions { grid-template-columns: 1fr; }
+  .enquiry-send-actions button { grid-column: auto; }
   .mobile-action-bar {
     position: fixed;
     z-index: 200;
