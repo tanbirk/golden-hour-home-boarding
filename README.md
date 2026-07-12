@@ -1,4 +1,4 @@
-# Golden Hour Home Boarding
+# Tales of Us Home Boarding
 
 A responsive, one-page concept website for a couple-run home dog boarding service in Bengaluru.
 

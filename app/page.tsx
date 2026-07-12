@@ -82,10 +82,10 @@ export default function Home() {
 
       <header className="site-header">
         <div className="nav-shell">
-          <a className="brand" href="#top" aria-label="Golden Hour Home Boarding, home">
+          <a className="brand" href="#top" aria-label="Tales of Us Home Boarding, home">
             <span className="brand-sun" aria-hidden="true"><i /></span>
             <span className="brand-copy">
-              <strong>Golden Hour</strong>
+              <strong>Tales of Us</strong>
               <small>Home Boarding</small>
             </span>
           </a>
@@ -123,10 +123,10 @@ export default function Home() {
               <p className="hero-lead">Warm, attentive boarding in a real home—cosy naps, happy walks, supervised play, and plenty of affection from a dog-loving couple.</p>
               <div className="hero-actions">
                 <a className="button" href="#contact">Check available dates <span aria-hidden="true">↗</span></a>
-                <a className="text-link" href="#hosts">Meet Maya & Arjun <span aria-hidden="true">↓</span></a>
+                <a className="text-link" href="#hosts">Meet Tanbir & Rishika <span aria-hidden="true">↓</span></a>
               </div>
               <div className="hero-note">
-                <span className="avatar-pair" aria-hidden="true"><i>M</i><i>A</i></span>
+                <span className="avatar-pair" aria-hidden="true"><i>T</i><i>R</i></span>
                 <p><strong>Care from the same two people, every day.</strong><br />No hand-offs. No crowded kennel rows.</p>
               </div>
             </div>
@@ -163,7 +163,7 @@ export default function Home() {
                 <h2 id="stay-title">Their routine.<br /><em>Our home.</em></h2>
               </div>
               <div className="lead-copy">
-                <p>Your dog is family, and that is exactly how they will be treated here. Golden Hour is a calm, homelike alternative to busy kennels, with familiar rhythms and thoughtful care tailored to each guest.</p>
+                <p>Your dog is family, and that is exactly how they will be treated here. Tales of Us is a calm, homelike alternative to busy kennels, with familiar rhythms and thoughtful care tailored to each guest.</p>
                 <a className="text-link" href="#included">See what every stay includes <span aria-hidden="true">↓</span></a>
               </div>
             </div>
@@ -192,7 +192,7 @@ export default function Home() {
           <div className="section-shell">
             <div className="day-heading">
               <div>
-                <p className="eyebrow light"><span /> A day at Golden Hour</p>
+                <p className="eyebrow light"><span /> A day at Tales of Us</p>
                 <h2 id="day-title">Easy days. <em>Happy dogs.</em></h2>
               </div>
               <p>A gentle rhythm with enough activity to feel fulfilled and enough quiet to feel at home.</p>
@@ -241,7 +241,7 @@ export default function Home() {
             <figure className="hosts-figure">
               <img
                 src="/golden-hour-hosts.png"
-                alt="Maya and Arjun sitting at dog level in their living room with a relaxed Golden Retriever and chocolate Labrador"
+                alt="Tanbir and Rishika sitting at dog level in their living room with a relaxed Golden Retriever and chocolate Labrador"
                 width="1448"
                 height="1086"
                 loading="lazy"
@@ -252,21 +252,21 @@ export default function Home() {
             <div className="hosts-copy">
               <p className="eyebrow"><span /> Your hosts</p>
               <h2 id="hosts-title">Two hosts. Four guests. <em>Plenty of attention.</em></h2>
-              <p className="section-lead">Hi, we are Maya and Arjun. Golden Hour began with a simple idea: dogs should feel safe, loved, and completely at home while their people are away.</p>
+              <p className="section-lead">Hi, we are Tanbir and Rishika. Tales of Us began with a simple idea: dogs should feel safe, loved, and completely at home while their people are away.</p>
               <p>We manage every stay personally—from the first morning walk to the last bedtime cuddle. Our guest list stays intentionally small, giving each dog the time and space to settle.</p>
 
               <div className="host-roles">
                 <article>
-                  <span>M</span>
-                  <div><h3>Maya</h3><p>Meals, medication, settle-in plans, and expert ear scratches.</p></div>
+                  <span>T</span>
+                  <div><h3>Tanbir</h3><p>Walks, enrichment, garden games, and champion sofa-nap supervision.</p></div>
                 </article>
                 <article>
-                  <span>A</span>
-                  <div><h3>Arjun</h3><p>Walks, enrichment, garden games, and champion sofa-nap supervision.</p></div>
+                  <span>R</span>
+                  <div><h3>Rishika</h3><p>Meals, medication, settle-in plans, and expert ear scratches.</p></div>
                 </article>
               </div>
 
-              <aside className="sample-notice"><strong>Make it yours:</strong> Maya and Arjun are sample hosts. Replace their names and story with the real couple's details before publishing publicly.</aside>
+              <aside className="sample-notice"><strong>Hosted personally:</strong> Every enquiry and stay is handled directly by Tanbir and Rishika.</aside>
             </div>
           </div>
         </section>
@@ -337,7 +337,7 @@ export default function Home() {
               <p>Tell us your travel dates and a little about your dog. The first step is simply a friendly, no-pressure conversation.</p>
 
               <div className="contact-card">
-                <div><span className="contact-label">Your hosts</span><strong>Maya & Arjun</strong></div>
+                <div><span className="contact-label">Your hosts</span><strong>Tanbir & Rishika</strong></div>
                 <div><span className="contact-label">Area</span><strong>Indiranagar, Bengaluru 560038</strong><small>Exact home address shared privately after the initial enquiry.</small></div>
                 <div><span className="contact-label">Phone / WhatsApp</span><strong>+91 00000 00000</strong></div>
                 <div><span className="contact-label">Email</span><strong>hello@goldenhourboarding.example</strong></div>
@@ -372,13 +372,13 @@ export default function Home() {
 
       <footer className="site-footer">
         <div className="section-shell footer-grid">
-          <a className="brand brand-light" href="#top" aria-label="Golden Hour Home Boarding, back to top">
+          <a className="brand brand-light" href="#top" aria-label="Tales of Us Home Boarding, back to top">
             <span className="brand-sun" aria-hidden="true"><i /></span>
-            <span className="brand-copy"><strong>Golden Hour</strong><small>Home Boarding</small></span>
+            <span className="brand-copy"><strong>Tales of Us</strong><small>Home Boarding</small></span>
           </a>
           <p>Small-group home boarding, with someone home day and night.</p>
           <div className="footer-links"><a href="#stay">The stay</a><a href="#hosts">Your hosts</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
-          <small>© 2026 Golden Hour Home Boarding · Concept website with sample business details.</small>
+          <small>© 2026 Tales of Us Home Boarding · Hosted by Tanbir and Rishika · Sample business details.</small>
         </div>
       </footer>
 
