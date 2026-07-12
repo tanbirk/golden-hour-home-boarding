@@ -2,7 +2,9 @@
 
 A responsive, one-page concept website for a couple-run home dog boarding service in Bengaluru.
 
-**Live site:** https://tanbirk.github.io/golden-hour-home-boarding/
+**GitHub Pages:** https://tanbirk.github.io/golden-hour-home-boarding/
+
+**Network-compatible live mirror:** https://raw.githack.com/tanbirk/golden-hour-home-boarding/main/docs/index.html
 
 ## Important before launch
 
