@@ -1,5 +1,5 @@
 const trustItems = [
-  { value: "4", label: "guest dogs maximum" },
+  { value: "2", label: "guest dogs maximum" },
   { value: "2×", label: "daily photo updates" },
   { value: "24/7", label: "care in our home" },
   { value: "1st", label: "meet-and-greet included" },
@@ -68,7 +68,7 @@ export default function Home() {
 
       <div className="demo-bar">
         <span>Website preview</span>
-        <p>Names, rates, reviews, policies, and contact details are sample content to replace before launch.</p>
+        <p>Rates, reviews, and policies are sample content to confirm with the hosts.</p>
       </div>
 
       <header className="site-header">
@@ -130,7 +130,7 @@ export default function Home() {
                 height="916"
                 fetchPriority="high"
               />
-              <figcaption><strong>Only four guest dogs</strong><span>at any one time</span></figcaption>
+              <figcaption><strong>Only two guest dogs</strong><span>at any one time</span></figcaption>
             </figure>
           </div>
         </section>
@@ -249,7 +249,7 @@ export default function Home() {
 
             <div className="hosts-copy">
               <p className="eyebrow"><span /> Your hosts</p>
-              <h2 id="hosts-title">Two hosts. Four guests. <em>Plenty of attention.</em></h2>
+              <h2 id="hosts-title">Two hosts. Two guests. <em>Plenty of attention.</em></h2>
               <p className="section-lead">Hi, we are Tanbir and Rishika. Tales of Us began with a simple idea: dogs should feel safe, loved, and completely at home while their people are away.</p>
               <p>We manage every stay personally—from the first morning walk to the last bedtime cuddle. Our guest list stays intentionally small, giving each dog the time and space to settle.</p>
 
@@ -336,16 +336,15 @@ export default function Home() {
 
               <div className="contact-card">
                 <div><span className="contact-label">Your hosts</span><strong>Tanbir & Rishika</strong></div>
-                <div><span className="contact-label">Area</span><strong>Indiranagar, Bengaluru 560038</strong><small>Exact home address shared privately after the initial enquiry.</small></div>
-                <div><span className="contact-label">Phone / WhatsApp</span><strong>+91 00000 00000</strong></div>
-                <div><span className="contact-label">Email</span><strong>hello@goldenhourboarding.example</strong></div>
+                <div><span className="contact-label">Address</span><strong>Carmel Rose Vista 1317B, 15th Main Rd, AECS Layout – A Block, Singasandra, Bengaluru, Karnataka 560068</strong></div>
+                <div><span className="contact-label">Email</span><strong><a href="mailto:tanbir.kashyap879@gmail.com">tanbir.kashyap879@gmail.com</a></strong></div>
                 <div><span className="contact-label">Enquiry hours</span><strong>Monday–Saturday · 9:00–19:00</strong></div>
               </div>
 
-              <p className="demo-contact-note">These contact details are intentionally non-working demo placeholders. Replace them before sharing the site with customers.</p>
+              <p className="demo-contact-note">The address and enquiry email are provided by the hosts. Rates and service policies should be confirmed before booking.</p>
             </div>
 
-            <form className="inquiry-form" action="mailto:hello@goldenhourboarding.example" method="post" encType="text/plain">
+            <form className="inquiry-form" action="mailto:tanbir.kashyap879@gmail.com?subject=Tales%20of%20Us%20booking%20enquiry" method="post" encType="text/plain">
               <div className="form-heading"><span>Booking enquiry</span><small>Opens your email app</small></div>
               <div className="form-row">
                 <label> Your name<input type="text" name="Owner name" autoComplete="name" required /></label>
@@ -360,7 +359,7 @@ export default function Home() {
                 <label> Pick-up date<input type="date" name="Pick-up date" required /></label>
               </div>
               <label> Tell us about your dog<textarea name="Care notes" rows={5} placeholder="Routine, temperament, medications, favourite things…" required /></label>
-              <label className="consent"><input type="checkbox" required /><span>I understand this is a sample enquiry form and no booking is confirmed until the hosts reply.</span></label>
+              <label className="consent"><input type="checkbox" required /><span>I understand my email app will open and no booking is confirmed until the hosts reply.</span></label>
               <button className="button button-submit" type="submit">Create enquiry email <span aria-hidden="true">↗</span></button>
               <p className="form-footnote">No commitment—your first step is simply a friendly conversation.</p>
             </form>
@@ -376,13 +375,13 @@ export default function Home() {
           </a>
           <p>Small-group home boarding, with someone home day and night.</p>
           <div className="footer-links"><a href="#stay">The stay</a><a href="#hosts">Your hosts</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
-          <small>© 2026 Tales of Us Home Boarding · Hosted by Tanbir and Rishika · Sample business details.</small>
+          <small>© 2026 Tales of Us Home Boarding · Hosted by Tanbir and Rishika · Sample pricing and policies.</small>
         </div>
       </footer>
 
       <nav className="mobile-action-bar" aria-label="Quick contact">
         <a href="#contact">Contact</a>
-        <a href="mailto:hello@goldenhourboarding.example">Email</a>
+        <a href="mailto:tanbir.kashyap879@gmail.com?subject=Tales%20of%20Us%20booking%20enquiry">Email</a>
         <a className="primary" href="#contact">Check dates</a>
       </nav>
     </>

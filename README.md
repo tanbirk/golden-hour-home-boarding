@@ -8,7 +8,7 @@ A responsive, one-page concept website for a couple-run home dog boarding servic
 
 ## Important before launch
 
-The names, rates, reviews, policies, address, phone number, email address, and service details are demo placeholders. Replace them with verified business information before making the site public.
+The rates, reviews, policies, and some service details are demo placeholders. The host names, public address, and enquiry email are supplied for this site.
 
 ## Local development
 
