@@ -5,15 +5,6 @@ const trustItems = [
   { value: "1st", label: "meet-and-greet included" },
 ];
 
-const dayAtGoldenHour = [
-  { time: "7:00", title: "Garden sniff & breakfast", text: "A gentle start, breakfast served just as it is at home." },
-  { time: "9:00", title: "Neighbourhood walk", text: "A pace and distance that suits your dog's age and energy." },
-  { time: "11:00", title: "Rest & first update", text: "Sofa naps, quiet company, and a photo sent your way." },
-  { time: "15:30", title: "Enrichment & play", text: "Supervised garden games, puzzles, or one-to-one attention." },
-  { time: "18:00", title: "Dinner & wind-down", text: "Separate feeding when needed, followed by a calm evening." },
-  { time: "21:30", title: "Last garden break", text: "A final stretch, fresh water, and cosy indoor sleep." },
-];
-
 const included = [
   "Comfortable indoor sleeping",
   "Two daily walks, tailored to your dog",
@@ -195,19 +186,26 @@ export default function Home() {
                 <p className="eyebrow light"><span /> A day at Tales of Us</p>
                 <h2 id="day-title">Easy days. <em>Happy dogs.</em></h2>
               </div>
-              <p>A gentle rhythm with enough activity to feel fulfilled and enough quiet to feel at home.</p>
+              <p>We follow your dog's usual routine and adjust each stay to their energy, comfort, and personality.</p>
             </div>
 
-            <ol className="timeline">
-              {dayAtGoldenHour.map((item) => (
-                <li key={item.time}>
-                  <time dateTime={item.time}>{item.time}</time>
-                  <span className="timeline-dot" aria-hidden="true" />
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </li>
-              ))}
-            </ol>
+            <div className="day-points">
+              <article>
+                <span aria-hidden="true" />
+                <h3>Walk, play, rest</h3>
+                <p>A comfortable balance shaped around your dog's age, energy, and favourite way to spend the day.</p>
+              </article>
+              <article>
+                <span aria-hidden="true" />
+                <h3>Familiar routines</h3>
+                <p>Meals, medication, sleep, and quiet time follow the instructions and comforts they know from home.</p>
+              </article>
+              <article>
+                <span aria-hidden="true" />
+                <h3>You stay close</h3>
+                <p>Photo and video updates let you see that they are relaxed, cared for, and enjoying their stay.</p>
+              </article>
+            </div>
           </div>
         </section>
 
